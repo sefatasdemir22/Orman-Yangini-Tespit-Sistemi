@@ -1,3 +1,115 @@
-🚁 DroneVision: Orman Yangını Tespit SistemiBu proje, derin öğrenme (Deep Learning) tekniklerini kullanarak orman yangınlarını görüntüler üzerinden gerçek zamanlı olarak tespit etmek amacıyla geliştirilmiştir. Özellikle düşük donanımlı cihazlarda (Edge AI) yüksek performansla çalışabilmesi için optimize edilmiştir.🚀 Proje Özellikleri ve BaşarımlarYüksek Doğruluk: Test verilerinde %93.8 genel doğruluk (Validation Accuracy).Hızlı Analiz: MobileNetV2 mimarisi ile düşük gecikmeli (low latency) tespit.Kullanıcı Dostu Arayüz: Gradio ile kolay test ve görselleştirme paneli.Hafif Mimari: Drone ve gömülü sistemler için optimize edilmiş model yapısı.🛠 Teknik Altyapı ve Yöntem📂 Veri Seti (Dataset)Eğitim sürecinde, yangın ve normal durumları içeren 2500+ görsellik "Fire-Detection-Dataset" kullanılmıştır. Modelin farklı ışık koşullarında ve karmaşık zeminlerde (kayalık, yoğun orman, sis) doğru çalışması için Data Augmentation (Veri Artırma) teknikleri uygulanmıştır.🧠 Model Mimarisi: MobileNetV2Projede, donanım kaynaklarını verimli kullanan MobileNetV2 mimarisi tercih edilmiştir.Neden MobileNetV2? Standart CNN modellerine göre çok daha az parametre ile benzer doğruluk oranları sunar. Bu, modelin drone üzerindeki işlemcilerde (Jetson Nano vb.) akıcı çalışmasını sağlar.Transfer Learning: ImageNet üzerinde eğitilmiş ağırlıklar kullanılarak modelin öğrenme süreci optimize edilmiştir.📊 Model DeğerlendirmesiModel, 5 epoch sonunda dengeli bir öğrenme eğrisi sergilemiş ve ezberleme (overfitting) yapmadan yüksek başarıya ulaşmıştır:Eğitim Doğruluğu (Accuracy): %97.2Doğrulama Doğruluğu (Val Accuracy): %93.8📂 Proje YapısıProje içeriği aşağıdaki düzenli yapıda sunulmuştur:app.py: Gradio tabanlı kullanıcı arayüzü dosyası.models/: Eğitilmiş .keras formatındaki güncel model dosyası.assets/: Modelin başarı ve hata grafiklerini içeren görseller.requirements.txt: Sistemin çalışması için gerekli kütüphane listesi.⚙️ Kurulum ve KullanımGerekli Kütüphaneleri Yükleyin:pip install -r requirements.txt
-Uygulamayı Çalıştırın:python app.py
-Hazırlayan: Sefa TasdemirKurum: İstanbul Medeniyet Üniversitesi - Bilgisayar Mühendisliği Bölümü
+Orman Yangını Tespit Sistemi
+
+Bu proje, görüntüler üzerinden orman yangını (Fire) / normal durum (No-Fire) sınıflandırması yapabilen, derin öğrenme tabanlı bir görüntü sınıflandırma sistemidir. Model, önceden eğitilmiş bir CNN mimarisi kullanılarak eğitilmiş ve Gradio tabanlı web arayüzü ile sunulmuştur.
+
+Gradio Demo:
+BURAYA_GRADIO_LINKINI_YAPISTIR
+
+Proje Özellikleri
+
+• CNN tabanlı görüntü sınıflandırma
+• Transfer Learning (MobileNetV2)
+• Fire / No-Fire sınıflandırması
+• %93.8 doğrulama başarımı
+• Gradio ile web arayüzü üzerinden canlı demo
+• Keras (.keras) formatında eğitilmiş model
+
+Veri Seti
+
+Bu projede kullanılan veri seti, yangın içeren ve normal durumları temsil eden görüntülerden oluşmaktadır.
+
+• Sınıflar: Fire, No-Fire
+• Toplam veri: 2500+ görüntü
+• Eğitim ve doğrulama setlerine ayrılmıştır
+• Görüntüler yeniden boyutlandırılmış ve normalize edilmiştir
+
+Veri seti, geliştirme sürecinde yerel ortamda ZIP dosyası olarak kullanılmıştır. GitHub dosya boyutu kısıtlamaları nedeniyle doğrudan repoya eklenmemiştir.
+
+Kullanılan klasör yapısı:
+
+data/
+    Fire/
+    NoFire/
+
+
+Notebook ve eğitim kodları bu dizin yapısına göre hazırlanmıştır.
+
+Kullanılan Yöntem
+
+Model eğitimi için MobileNetV2 mimarisi kullanılmıştır. ImageNet veri seti üzerinde önceden eğitilmiş ağırlıklar transfer learning yaklaşımıyla yeniden eğitilmiştir.
+
+Bu yaklaşımın tercih edilme nedenleri:
+
+• Daha az parametre
+• Daha hızlı eğitim ve çıkarım süresi
+• Görüntü sınıflandırma problemleri için yeterli doğruluk
+
+Model Eğitimi ve Sonuçlar
+
+Model 5 epoch boyunca eğitilmiştir.
+
+Elde edilen sonuçlar:
+
+• Eğitim doğruluğu: %97.2
+• Doğrulama doğruluğu: %93.8
+
+Eğitim sürecine ait doğruluk ve kayıp grafikleri ile confusion matrix çıktıları assets klasöründe bulunmaktadır.
+
+Örnek eğitim grafiği:
+
+Proje Dosya Yapısı
+
+assets
+→ Eğitim grafikleri ve görseller
+
+models
+→ Eğitilmiş Keras modeli (yangin_tespit_modeli.keras)
+
+notebook
+→ Modelin eğitildiği Jupyter Notebook
+
+app.py
+→ Gradio web arayüz uygulaması
+
+README.md
+→ Proje dokümantasyonu
+
+requirements.txt
+→ Gerekli Python kütüphaneleri
+
+Kurulum ve Çalıştırma
+
+Projeyi bilgisayarınıza klonlayın
+
+Gerekli kütüphaneleri requirements.txt üzerinden kurun
+
+app.py dosyasını çalıştırın
+
+Açılan Gradio arayüzünden bir görüntü yükleyerek tahmin alın
+
+Demo Kullanımı
+
+• Arayüze bir görüntü yükleyin
+• Model görüntüyü analiz eder
+• Sonuç “YANGIN VAR” veya “GÜVENLİ” olarak gösterilir
+• Güven skoru yüzde olarak sunulur
+
+Sunum Akışı (2 Dakika)
+
+• Proje amacı ve problem tanımı
+• Kullanılan veri seti
+• Model ve yöntem
+• Gradio üzerinden 2–3 örnek demo
+• Sonuçların kısa değerlendirmesi
+
+Gelecek Çalışmalar
+
+• Daha büyük ve çeşitli veri setleriyle modelin genellenmesi
+• Farklı çevresel koşulların modellenmesi
+• Gerçek zamanlı sistemlere entegrasyon
+
+Hazırlayan
+
+Sefa Taşdemir
+İstanbul Medeniyet Üniversitesi
+Bilgisayar Mühendisliği
