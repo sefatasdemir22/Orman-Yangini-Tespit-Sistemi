@@ -9,7 +9,7 @@
   ve kullanıcı dostu **Gradio Web Arayüzü**nü içermektedir.
 
   🔗 **Gradio Demo:**  
-  BURAYA_GRADIO_LINKINI_YAPISTIR
+  https://4c57f3ba66bc2fbdf9.gradio.live
 
   ---
 
