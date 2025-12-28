@@ -1,109 +1,140 @@
-🚒 Orman Yangını Tespit Sistemi (Wildfire Detection System)
+project:
+  name: "Orman Yangını Tespit Sistemi"
+  description: >
+    Bu proje, görüntüler üzerinden orman yangını (Fire) ve normal durum (No-Fire)
+    sınıflandırması yapabilen, Derin Öğrenme (CNN) tabanlı bir görüntü
+    sınıflandırma sistemidir. Model, önceden eğitilmiş bir mimari kullanılarak
+    eğitilmiş ve Gradio tabanlı bir web arayüzü ile sunulmuştur.
 
-Bu proje, orman yangınlarını erken tespit etmeye yönelik geliştirilmiş, Derin Öğrenme (CNN) tabanlı bir görüntü sınıflandırma uygulamasıdır. Fire ve No-Fire sınıflarına ait görüntüler kullanılarak eğitilen model, yüksek doğrulukla sınıflandırma yapabilmektedir.
+readme_content: |
+  🚒 **Orman Yangını Tespit Sistemi (Wildfire Detection System)**
 
-Proje; model eğitiminin gerçekleştirildiği Jupyter Notebook’u ve kullanıcı dostu Gradio Web Arayüzünü içermektedir.
+  Bu proje, orman yangınlarını erken tespit etmeye yönelik geliştirilmiş,
+  Derin Öğrenme (CNN) tabanlı bir görüntü sınıflandırma uygulamasıdır.
+  Fire ve No-Fire sınıflarına ait görüntüler kullanılarak eğitilen model,
+  yüksek doğrulukla sınıflandırma yapabilmektedir.
 
-🔗 Gradio Demo:
-BURAYA_GRADIO_LINKINI_YAPISTIR
+  Proje; model eğitiminin gerçekleştirildiği Jupyter Notebook’u ve kullanıcı
+  dostu **Gradio Web Arayüzü**nü içermektedir.
 
-🚀 Proje Özellikleri ve Başarımlar
+  🔗 **Gradio Demo:**
+  BURAYA_GRADIO_LINKINI_YAPISTIR
 
-• CNN tabanlı görüntü sınıflandırma
-• Transfer Learning (MobileNetV2)
-• Fire / No-Fire sınıflandırması
-• Doğrulama doğruluğu: %93.8
-• Gradio tabanlı web arayüzü
-• Keras (.keras) formatında eğitilmiş model
+  ------------------------------------------------------------
 
-📂 Proje Dosya Yapısı
+  🚀 **Proje Özellikleri ve Başarımlar**
 
-Proje içerisindeki klasör ve dosyaların görevleri şöyledir:
+  • CNN tabanlı görüntü sınıflandırma
+  • Transfer Learning (MobileNetV2)
+  • Fire / No-Fire sınıflandırması
+  • Doğrulama doğruluğu: %93.8
+  • Gradio tabanlı web arayüzü
+  • Keras (.keras) formatında eğitilmiş model
 
-• app.py
-→ Gradio tabanlı web arayüzünü başlatan ana uygulama dosyası
+  ------------------------------------------------------------
 
-• notebook/
-→ Modelin eğitildiği ve analiz edildiği Jupyter Notebook
+  📂 **Proje Dosya Yapısı**
 
-• models/
-→ Eğitilmiş Keras modeli (yangin_tespit_modeli.keras)
+  Proje içerisindeki klasör ve dosyaların görevleri şöyledir:
 
-• assets/
-→ Eğitim doğruluk ve kayıp grafikleri
+  • app.py
+    → Gradio tabanlı web arayüzünü başlatan ana uygulama dosyası
 
-• README.md
-→ Proje dokümantasyonu
+  • notebook/
+    → Modelin eğitildiği ve analiz edildiği Jupyter Notebook
 
-• requirements.txt
-→ Gerekli Python kütüphaneleri
+  • models/
+    → Eğitilmiş Keras modeli (yangin_tespit_modeli.keras)
 
-📥 Veri Seti (Kurulum İçin Önemli)
+  • assets/
+    → Eğitim doğruluk ve kayıp grafikleri
 
-Bu projede kullanılan veri seti, yangın içeren ve normal durumları temsil eden görüntülerden oluşmaktadır.
+  • README.md
+    → Proje dokümantasyonu
 
-• Sınıflar: Fire, No-Fire
-• Toplam veri: 2500+ görüntü
+  • requirements.txt
+    → Gerekli Python kütüphaneleri
 
-Veri seti, geliştirme sürecinde yerel ortamda ZIP dosyası olarak kullanılmıştır. GitHub dosya boyutu kısıtlamaları nedeniyle doğrudan repoya eklenmemiştir.
+  ------------------------------------------------------------
 
-Kullanılan klasör yapısı:
+  📥 **Veri Seti (Kurulum İçin Önemli)**
 
-data/
-    Fire/
-    NoFire/
+  Bu projede kullanılan veri seti, yangın içeren ve normal durumları
+  temsil eden görüntülerden oluşmaktadır.
 
+  • Sınıflar: Fire, No-Fire
+  • Toplam veri: 2500+ görüntü
 
-Notebook ve eğitim kodları bu dizin yapısına göre hazırlanmıştır.
+  Veri seti, geliştirme sürecinde yerel ortamda ZIP dosyası olarak
+  kullanılmıştır. GitHub dosya boyutu kısıtlamaları nedeniyle doğrudan
+  repoya eklenmemiştir.
 
-🛠 Kurulum ve Kullanım
+  Kullanılan klasör yapısı:
 
-Projeyi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyin:
+      data/
+          Fire/
+          NoFire/
 
-1️⃣ Projeyi Klonlayın
+  Notebook ve eğitim kodları bu dizin yapısına göre hazırlanmıştır.
 
-git clone https://github.com/sefatasdemir22/Orman-Yangini-Tespit-Sistemi.git
-cd Orman-Yangini-Tespit-Sistemi
+  ------------------------------------------------------------
 
+  🛠 **Kurulum ve Kullanım**
 
-2️⃣ Gerekli Kütüphaneleri Yükleyin
+  Projeyi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyin:
 
-pip install -r requirements.txt
+  1️⃣ Projeyi Klonlayın
 
+      git clone https://github.com/sefatasdemir22/Orman-Yangini-Tespit-Sistemi.git
+      cd Orman-Yangini-Tespit-Sistemi
 
-3️⃣ Uygulamayı Başlatın (Arayüz)
+  2️⃣ Gerekli Kütüphaneleri Yükleyin
 
-python app.py
+      pip install -r requirements.txt
 
+  3️⃣ Uygulamayı Başlatın (Arayüz)
 
-Bu komut size tarayıcıda çalışan bir Gradio arayüz linki verecektir.
+      python app.py
 
-📊 Model Eğitimi ve Sonuçlar
+  Bu komut size tarayıcıda çalışan bir Gradio arayüz linki verecektir.
 
-Model 5 epoch boyunca eğitilmiştir.
+  ------------------------------------------------------------
 
-• Eğitim doğruluğu: %97.2
-• Doğrulama doğruluğu: %93.8
+  📊 **Model Eğitimi ve Sonuçlar**
 
-Eğitim sürecine ait doğruluk ve kayıp grafikleri assets klasöründe paylaşılmıştır.
+  Model 5 epoch boyunca eğitilmiştir.
 
-Örnek eğitim grafiği:
+  • Eğitim doğruluğu: %97.2
+  • Doğrulama doğruluğu: %93.8
 
-🎤 Sunum Akışı (2 Dakika)
+  Eğitim sürecine ait doğruluk ve kayıp grafikleri assets klasöründe
+  paylaşılmıştır.
 
-• Problem tanımı ve proje amacı
-• Veri seti ve kullanılan yöntem
-• Gradio üzerinden 2–3 örnek demo
-• Sonuçların kısa değerlendirmesi
+  Örnek eğitim grafiği:
 
-🔮 Gelecek Çalışmalar
+  ![Model Başarı Grafiği](assets/basari_grafigi.png)
 
-• Daha büyük ve çeşitli veri setleriyle modelin geliştirilmesi
-• Farklı çevresel koşullarda performans analizi
-• Gerçek zamanlı sistemlere entegrasyon
+  ------------------------------------------------------------
 
-👤 Hazırlayan
+  🎤 **Sunum Akışı (2 Dakika)**
 
-Sefa Taşdemir
-İstanbul Medeniyet Üniversitesi
-Bilgisayar Mühendisliği
+  • Problem tanımı ve proje amacı
+  • Veri seti ve kullanılan yöntem
+  • Gradio üzerinden 2–3 örnek demo
+  • Sonuçların kısa değerlendirmesi
+
+  ------------------------------------------------------------
+
+  🔮 **Gelecek Çalışmalar**
+
+  • Daha büyük ve çeşitli veri setleriyle modelin geliştirilmesi
+  • Farklı çevresel koşullarda performans analizi
+  • Gerçek zamanlı sistemlere entegrasyon
+
+  ------------------------------------------------------------
+
+  👤 **Hazırlayan**
+
+  Sefa Taşdemir
+  İstanbul Medeniyet Üniversitesi
+  Bilgisayar Mühendisliği
