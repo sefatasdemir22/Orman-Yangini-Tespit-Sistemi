@@ -3,11 +3,10 @@ import tensorflow as tf
 import numpy as np
 from pathlib import Path
 
-# Proje kökünü (app.py'nin bulunduğu klasör) baz al
 BASE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = BASE_DIR.parent
+MODEL_PATH = PROJECT_ROOT / "models" / "yangin_tespit_modeli.keras"
 
-# Model yolu (dosya adını birebir yaz)
-MODEL_PATH = BASE_DIR / "models" / "yangin_tespit_modeli.keras"
 
 # Modeli yükle
 model = tf.keras.models.load_model(MODEL_PATH)
