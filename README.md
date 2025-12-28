@@ -1,9 +1,3 @@
-project:
-  name: "Orman Yangını Tespit Sistemi"
-  course: "Derin Öğrenme"
-  type: "Görüntü Sınıflandırma (CNN)"
-
-readme_content: |
   🚒 **Orman Yangını Tespit Sistemi (Wildfire Detection System)**
 
   Bu proje, görüntüler üzerinden **orman yangını (Fire)** ve **normal durum (No-Fire)**
