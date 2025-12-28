@@ -1,27 +1,49 @@
-Orman Yangını Tespit Sistemi
+🚒 Orman Yangını Tespit Sistemi (Wildfire Detection System)
 
-Bu proje, görüntüler üzerinden orman yangını (Fire) / normal durum (No-Fire) sınıflandırması yapabilen, derin öğrenme tabanlı bir görüntü sınıflandırma sistemidir. Model, önceden eğitilmiş bir CNN mimarisi kullanılarak eğitilmiş ve Gradio tabanlı web arayüzü ile sunulmuştur.
+Bu proje, orman yangınlarını erken tespit etmeye yönelik geliştirilmiş, Derin Öğrenme (CNN) tabanlı bir görüntü sınıflandırma uygulamasıdır. Fire ve No-Fire sınıflarına ait görüntüler kullanılarak eğitilen model, yüksek doğrulukla sınıflandırma yapabilmektedir.
 
-Gradio Demo:
+Proje; model eğitiminin gerçekleştirildiği Jupyter Notebook’u ve kullanıcı dostu Gradio Web Arayüzünü içermektedir.
+
+🔗 Gradio Demo:
 BURAYA_GRADIO_LINKINI_YAPISTIR
 
-Proje Özellikleri
+🚀 Proje Özellikleri ve Başarımlar
 
 • CNN tabanlı görüntü sınıflandırma
 • Transfer Learning (MobileNetV2)
 • Fire / No-Fire sınıflandırması
-• %93.8 doğrulama başarımı
-• Gradio ile web arayüzü üzerinden canlı demo
+• Doğrulama doğruluğu: %93.8
+• Gradio tabanlı web arayüzü
 • Keras (.keras) formatında eğitilmiş model
 
-Veri Seti
+📂 Proje Dosya Yapısı
+
+Proje içerisindeki klasör ve dosyaların görevleri şöyledir:
+
+• app.py
+→ Gradio tabanlı web arayüzünü başlatan ana uygulama dosyası
+
+• notebook/
+→ Modelin eğitildiği ve analiz edildiği Jupyter Notebook
+
+• models/
+→ Eğitilmiş Keras modeli (yangin_tespit_modeli.keras)
+
+• assets/
+→ Eğitim doğruluk ve kayıp grafikleri
+
+• README.md
+→ Proje dokümantasyonu
+
+• requirements.txt
+→ Gerekli Python kütüphaneleri
+
+📥 Veri Seti (Kurulum İçin Önemli)
 
 Bu projede kullanılan veri seti, yangın içeren ve normal durumları temsil eden görüntülerden oluşmaktadır.
 
 • Sınıflar: Fire, No-Fire
 • Toplam veri: 2500+ görüntü
-• Eğitim ve doğrulama setlerine ayrılmıştır
-• Görüntüler yeniden boyutlandırılmış ve normalize edilmiştir
 
 Veri seti, geliştirme sürecinde yerel ortamda ZIP dosyası olarak kullanılmıştır. GitHub dosya boyutu kısıtlamaları nedeniyle doğrudan repoya eklenmemiştir.
 
@@ -34,81 +56,53 @@ data/
 
 Notebook ve eğitim kodları bu dizin yapısına göre hazırlanmıştır.
 
-Kullanılan Yöntem
+🛠 Kurulum ve Kullanım
 
-Model eğitimi için MobileNetV2 mimarisi kullanılmıştır. ImageNet veri seti üzerinde önceden eğitilmiş ağırlıklar transfer learning yaklaşımıyla yeniden eğitilmiştir.
+Projeyi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyin:
 
-Bu yaklaşımın tercih edilme nedenleri:
+1️⃣ Projeyi Klonlayın
 
-• Daha az parametre
-• Daha hızlı eğitim ve çıkarım süresi
-• Görüntü sınıflandırma problemleri için yeterli doğruluk
+git clone https://github.com/sefatasdemir22/Orman-Yangini-Tespit-Sistemi.git
+cd Orman-Yangini-Tespit-Sistemi
 
-Model Eğitimi ve Sonuçlar
+
+2️⃣ Gerekli Kütüphaneleri Yükleyin
+
+pip install -r requirements.txt
+
+
+3️⃣ Uygulamayı Başlatın (Arayüz)
+
+python app.py
+
+
+Bu komut size tarayıcıda çalışan bir Gradio arayüz linki verecektir.
+
+📊 Model Eğitimi ve Sonuçlar
 
 Model 5 epoch boyunca eğitilmiştir.
-
-Elde edilen sonuçlar:
 
 • Eğitim doğruluğu: %97.2
 • Doğrulama doğruluğu: %93.8
 
-Eğitim sürecine ait doğruluk ve kayıp grafikleri ile confusion matrix çıktıları assets klasöründe bulunmaktadır.
+Eğitim sürecine ait doğruluk ve kayıp grafikleri assets klasöründe paylaşılmıştır.
 
 Örnek eğitim grafiği:
 
-Proje Dosya Yapısı
+🎤 Sunum Akışı (2 Dakika)
 
-assets
-→ Eğitim grafikleri ve görseller
-
-models
-→ Eğitilmiş Keras modeli (yangin_tespit_modeli.keras)
-
-notebook
-→ Modelin eğitildiği Jupyter Notebook
-
-app.py
-→ Gradio web arayüz uygulaması
-
-README.md
-→ Proje dokümantasyonu
-
-requirements.txt
-→ Gerekli Python kütüphaneleri
-
-Kurulum ve Çalıştırma
-
-Projeyi bilgisayarınıza klonlayın
-
-Gerekli kütüphaneleri requirements.txt üzerinden kurun
-
-app.py dosyasını çalıştırın
-
-Açılan Gradio arayüzünden bir görüntü yükleyerek tahmin alın
-
-Demo Kullanımı
-
-• Arayüze bir görüntü yükleyin
-• Model görüntüyü analiz eder
-• Sonuç “YANGIN VAR” veya “GÜVENLİ” olarak gösterilir
-• Güven skoru yüzde olarak sunulur
-
-Sunum Akışı (2 Dakika)
-
-• Proje amacı ve problem tanımı
-• Kullanılan veri seti
-• Model ve yöntem
+• Problem tanımı ve proje amacı
+• Veri seti ve kullanılan yöntem
 • Gradio üzerinden 2–3 örnek demo
 • Sonuçların kısa değerlendirmesi
 
-Gelecek Çalışmalar
+🔮 Gelecek Çalışmalar
 
-• Daha büyük ve çeşitli veri setleriyle modelin genellenmesi
-• Farklı çevresel koşulların modellenmesi
+• Daha büyük ve çeşitli veri setleriyle modelin geliştirilmesi
+• Farklı çevresel koşullarda performans analizi
 • Gerçek zamanlı sistemlere entegrasyon
 
-Hazırlayan
+👤 Hazırlayan
 
 Sefa Taşdemir
 İstanbul Medeniyet Üniversitesi
