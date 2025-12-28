@@ -18,7 +18,7 @@ readme_content: |
   dostu **Gradio Web Arayüzü**nü içermektedir.
 
   🔗 **Gradio Demo:**
-  BURAYA_GRADIO_LINKINI_YAPISTIR
+  https://a8412ce0d8e4278783.gradio.live
 
   ------------------------------------------------------------
 
