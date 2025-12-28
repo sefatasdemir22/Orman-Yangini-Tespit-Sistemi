@@ -1,18 +1,15 @@
 project:
   name: "Orman Yangını Tespit Sistemi"
-  description: >
-    Bu proje, görüntüler üzerinden orman yangını (Fire) ve normal durum (No-Fire)
-    sınıflandırması yapabilen, Derin Öğrenme (CNN) tabanlı bir görüntü
-    sınıflandırma sistemidir. Model, önceden eğitilmiş bir mimari kullanılarak
-    eğitilmiş ve Gradio tabanlı bir web arayüzü ile sunulmuştur.
+  course: "Derin Öğrenme"
+  type: "Görüntü Sınıflandırma (CNN)"
 
 readme_content: |
   🚒 **Orman Yangını Tespit Sistemi (Wildfire Detection System)**
 
-  Bu proje, orman yangınlarını erken tespit etmeye yönelik geliştirilmiş,
-  Derin Öğrenme (CNN) tabanlı bir görüntü sınıflandırma uygulamasıdır.
-  Fire ve No-Fire sınıflarına ait görüntüler kullanılarak eğitilen model,
-  yüksek doğrulukla sınıflandırma yapabilmektedir.
+  Bu proje, görüntüler üzerinden **orman yangını (Fire)** ve **normal durum (No-Fire)**
+  sınıflandırması yapabilen, Derin Öğrenme (CNN) tabanlı bir görüntü
+  sınıflandırma sistemidir. Amaç, orman yangınlarının erken tespitine
+  yönelik pratik ve uygulanabilir bir karar destek modeli geliştirmektir.
 
   Proje; model eğitiminin gerçekleştirildiği Jupyter Notebook’u ve kullanıcı
   dostu **Gradio Web Arayüzü**nü içermektedir.
@@ -22,48 +19,34 @@ readme_content: |
 
   ------------------------------------------------------------
 
-  🚀 **Proje Özellikleri ve Başarımlar**
+  🎯 **Proje Konusu ve Seçilme Gerekçesi**
 
-  • CNN tabanlı görüntü sınıflandırma
-  • Transfer Learning (MobileNetV2)
-  • Fire / No-Fire sınıflandırması
-  • Doğrulama doğruluğu: %93.8
-  • Gradio tabanlı web arayüzü
-  • Keras (.keras) formatında eğitilmiş model
+  Orman yangınları, erken fark edilmediğinde kısa sürede büyük alanlara
+  yayılarak ciddi çevresel ve ekonomik kayıplara yol açmaktadır. Bu proje,
+  görüntü tabanlı derin öğrenme yaklaşımları kullanarak yangın tespitini
+  otomatikleştirmeyi ve erken uyarı sistemlerine katkı sunmayı amaçlamaktadır.
 
-  ------------------------------------------------------------
-
-  📂 **Proje Dosya Yapısı**
-
-  Proje içerisindeki klasör ve dosyaların görevleri şöyledir:
-
-  • app.py
-    → Gradio tabanlı web arayüzünü başlatan ana uygulama dosyası
-
-  • notebook/
-    → Modelin eğitildiği ve analiz edildiği Jupyter Notebook
-
-  • models/
-    → Eğitilmiş Keras modeli (yangin_tespit_modeli.keras)
-
-  • assets/
-    → Eğitim doğruluk ve kayıp grafikleri
-
-  • README.md
-    → Proje dokümantasyonu
-
-  • requirements.txt
-    → Gerekli Python kütüphaneleri
+  Literatürde, CNN tabanlı görüntü sınıflandırma ve transfer learning
+  yaklaşımları orman yangını tespiti problemlerinde yaygın olarak
+  kullanılmaktadır. Bu çalışma, literatürdeki bu yöntemleri temel alarak
+  sade ve etkili bir prototip geliştirmeyi hedeflemektedir.
 
   ------------------------------------------------------------
 
-  📥 **Veri Seti (Kurulum İçin Önemli)**
+  📥 **Veri Seti**
 
-  Bu projede kullanılan veri seti, yangın içeren ve normal durumları
-  temsil eden görüntülerden oluşmaktadır.
+  Bu projede kullanılan veri seti, **Kaggle platformunda yer alan açık
+  kaynaklı orman yangını veri kümelerinden derlenmiştir**.
 
-  • Sınıflar: Fire, No-Fire
-  • Toplam veri: 2500+ görüntü
+  • Toplam veri sayısı: 2500+ görüntü  
+  • Sınıflar: Fire / No-Fire  
+  • Veri bölünmesi: %80 Eğitim / %20 Test  
+
+  Modelin ezberlemesini (overfitting) önlemek amacıyla eğitim verilerine
+  **data augmentation** teknikleri uygulanmıştır. Bu kapsamda:
+
+  • Görüntü döndürme (rotation)  
+  • Parlaklık değişimi (brightness adjustment)  
 
   Veri seti, geliştirme sürecinde yerel ortamda ZIP dosyası olarak
   kullanılmıştır. GitHub dosya boyutu kısıtlamaları nedeniyle doğrudan
@@ -76,6 +59,64 @@ readme_content: |
           NoFire/
 
   Notebook ve eğitim kodları bu dizin yapısına göre hazırlanmıştır.
+
+  ------------------------------------------------------------
+
+  🧠 **Yöntem ve Model Seçimi**
+
+  Model eğitimi için **MobileNetV2** mimarisi kullanılmıştır.
+  ImageNet veri seti üzerinde önceden eğitilmiş ağırlıklar,
+  **Transfer Learning** yaklaşımı ile yeniden eğitilmiştir.
+
+  MobileNetV2 tercih edilme nedenleri:
+
+  • Daha az parametre sayısı  
+  • Hızlı eğitim ve çıkarım süresi  
+  • Kaynak kısıtlı sistemler için uygunluk  
+
+  Literatürde ResNet ve EfficientNet gibi daha derin mimariler de
+  kullanılmaktadır. Ancak bu projede, pratiklik ve verimlilik
+  kriterleri göz önünde bulundurularak MobileNetV2 tercih edilmiştir.
+
+  ------------------------------------------------------------
+
+  📊 **Model Eğitimi ve Değerlendirme**
+
+  Model, 5 epoch boyunca eğitilmiştir.
+
+  Elde edilen sonuçlar:
+
+  • Eğitim doğruluğu: %97.2  
+  • Doğrulama doğruluğu: %93.8  
+
+  Eğitim sürecine ait doğruluk ve kayıp grafikleri **assets** klasöründe
+  paylaşılmıştır.
+
+  Örnek eğitim grafiği:
+
+  ![Model Başarı Grafiği](assets/basari_grafigi.png)
+
+  ------------------------------------------------------------
+
+  📂 **Proje Dosya Yapısı**
+
+  • app.py  
+    → Gradio tabanlı web arayüzünü başlatan ana uygulama dosyası
+
+  • notebook/  
+    → Modelin eğitildiği Jupyter Notebook
+
+  • models/  
+    → Eğitilmiş Keras modeli (yangin_tespit_modeli.keras)
+
+  • assets/  
+    → Eğitim doğruluk ve kayıp grafikleri
+
+  • README.md  
+    → Proje dokümantasyonu
+
+  • requirements.txt  
+    → Gerekli Python kütüphaneleri
 
   ------------------------------------------------------------
 
@@ -100,41 +141,25 @@ readme_content: |
 
   ------------------------------------------------------------
 
-  📊 **Model Eğitimi ve Sonuçlar**
-
-  Model 5 epoch boyunca eğitilmiştir.
-
-  • Eğitim doğruluğu: %97.2
-  • Doğrulama doğruluğu: %93.8
-
-  Eğitim sürecine ait doğruluk ve kayıp grafikleri assets klasöründe
-  paylaşılmıştır.
-
-  Örnek eğitim grafiği:
-
-  ![Model Başarı Grafiği](assets/basari_grafigi.png)
-
-  ------------------------------------------------------------
-
   🎤 **Sunum Akışı (2 Dakika)**
 
-  • Problem tanımı ve proje amacı
-  • Veri seti ve kullanılan yöntem
-  • Gradio üzerinden 2–3 örnek demo
-  • Sonuçların kısa değerlendirmesi
+  • Problem tanımı ve proje amacı  
+  • Veri seti ve kullanılan yöntem  
+  • Gradio üzerinden 2–3 örnek demo  
+  • Sonuçların kısa değerlendirmesi  
 
   ------------------------------------------------------------
 
   🔮 **Gelecek Çalışmalar**
 
-  • Daha büyük ve çeşitli veri setleriyle modelin geliştirilmesi
-  • Farklı çevresel koşullarda performans analizi
-  • Gerçek zamanlı sistemlere entegrasyon
+  • Daha büyük ve çeşitli veri setleriyle modelin geliştirilmesi  
+  • Farklı çevresel koşullarda performans analizi  
+  • Gerçek zamanlı sistemlere entegrasyon  
 
   ------------------------------------------------------------
 
   👤 **Hazırlayan**
 
-  Sefa Taşdemir
-  İstanbul Medeniyet Üniversitesi
+  Sefa Taşdemir  
+  İstanbul Medeniyet Üniversitesi  
   Bilgisayar Mühendisliği
